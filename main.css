@@ -1,0 +1,333 @@
+*{
+  margin: 0 ;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+}
+header .container{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 30px;
+  margin: 10px auto;
+  font-size: 24px;
+  text-transform: capitalize;
+}
+header hr{
+  margin: 20px;
+  height: 1px;
+  background: #222;
+  border-radius: 5px;
+}
+.Game{
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(500px,1fr));
+  justify-content: space-between;
+  grid-gap: 40px;
+  height: calc(85vh/3);
+  align-items: center;
+}
+
+
+@media (min-width: 768px) {
+  .Game{
+    grid-gap: 10px !important;
+    grid-template-columns: repeat(auto-fill,minmax(270px,1fr)) !important;
+  }
+}
+@media (min-width: 900px) {
+  .Game{
+    grid-gap: 10px !important;
+    grid-template-columns: repeat(auto-fill,minmax(400px,1fr)) !important;
+  }
+}
+@media (min-width: 1100px) {
+  .Game{
+    grid-gap: 10px !important;
+    grid-template-columns: repeat(auto-fill,minmax(500px,1fr)) !important;
+  }
+}
+@media (max-width: 767px) {
+  .Game{
+    grid-gap: 10px !important;
+    grid-template-columns: repeat(auto-fill,minmax(180px,1fr)) !important;
+  }
+  header .container{
+    text-align:center;
+  }
+  .keyboard{
+    overflow: auto !important;
+  }
+  .keyboard .container{
+    transform: translateX(0) !important;
+    margin:10px !important;
+  }
+  .Game .container{
+    transform: scale(.8) !important;
+  }
+  .guessedWord .container{
+    overflow: auto !important;
+  }
+}
+
+@media (max-width: 370px) {
+  .Game{
+    grid-gap: 10px !important;
+    grid-template-columns: repeat(auto-fill,minmax(120px,1fr)) !important;
+  }
+  .Game .container{
+    transform: scale(.5) !important;
+  }
+}
+
+
+.Game .container{
+  display: flex;
+  justify-content: center ;
+  text-align: center;
+  position: relative;
+  margin: 20px;
+}
+.Game .container .shape .bottom{
+  width: 100px;
+  height: 3px;
+  background: #222;
+  border-radius: 10px;
+  display: none;
+  position: absolute;
+  top: 0;
+}
+.Game .container .shape .stand{
+  width: 3px;
+  height: 200px;
+  background: #222;
+  display: none;
+}
+.right{
+  width: 100px;
+  height: 3px;
+  background: #222;
+  border-radius: 10px;
+  transform: translateX(-50%);
+  display: none;
+  transition: .3s;
+  position: absolute;
+  bottom: 0;
+  }
+.rope{
+    width: 60px;
+    top: 0;
+    height: 60px;
+    position: absolute;
+    border-radius: 50%;
+    border: 2px black dashed;
+    transform: translate(66px, 20px);
+    display: none;
+    transition: .3s;
+
+  }
+  .rope::before{
+    position: absolute;
+    content: "";
+    width: 3px;
+    height: 20px;
+    background: #222;
+    top: -20px;
+  }
+
+  .human{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    border-radius: 50%;
+    border: 2px black solid;
+    transform: translate(71px, 20px);
+    top: 5px;
+    display: none;
+    transition: .3s;
+
+  }
+  .human::before{
+    position: absolute;
+    content: "";
+    width: 2px;
+    height: 20px;
+    background: #222;
+    bottom: -20px;
+  }
+  .backbone{
+    position: absolute;
+    width: 2px;
+    height: 70px;
+    background: #222;
+    left: 50%;
+    bottom: -150%;
+    transition: .3s;
+    display: none;
+    transition: .3s;
+
+  }
+  .hand{
+    position: absolute;
+    left: 50%;
+    bottom: -70%;
+    display: none;
+    transition: .3s;
+
+
+  }
+  .hand::before{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    transform: skewY(-25deg);
+    background: #222;
+  }
+  .hand::after{
+    content: '';
+    left: -40px;
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    transform: skewY(25deg);
+    background: #222;
+  }
+  .legs{
+    position: absolute;
+    background: #222;
+    left: 50%;
+    bottom: -163%;
+    display: none;
+    transition: .3s;
+  }
+  .legs::before{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    transform: skewY(25deg);
+    background: #222;
+  }
+  .legs::after{
+    content: '';
+    left: -40px;
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    transform: skewY(-25deg);
+    background: #222;
+  }
+  .randomImage{
+    margin: 20px;
+    text-align: center;
+    max-width: 100%;
+  }
+  .randomImage img{
+    max-width: 100%;
+  }
+
+  .keyboard{
+    height: calc(85vh/3);
+    text-align: center;
+    align-items: center;
+    overflow: visible;
+
+  }
+.keyboard .container{
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  height: auto;
+  overflow: visible;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin: 50px 100px;
+}
+.keyboard .container span{
+  text-transform: uppercase;
+  font-size: 20px;
+  background: teal;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.keyboard .container span:hover{
+  background: #0a2e2e;
+}
+.guessedWord{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: calc(82vh/3);
+}
+.guessedWord .container{
+  margin: 20px;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  height: auto;
+  overflow: visible;
+  flex-wrap: wrap;
+  margin: 40px;
+  padding: 30px;
+  align-items: center;
+}
+.guessedWord .container span{
+  text-transform: uppercase;
+  font-size: 25px;
+  width: 40px;
+  height: 40px;
+  border: 3px solid teal;
+  margin: 10px;
+  border-radius: 40%;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.guessedWord .container span .space{
+
+}
+
+.GameOverDiv{
+  position: fixed;
+  font-size: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  padding: 20px;
+  background: white;
+  border-radius: 20px;
+
+}
+.GameOverDiv div{
+  text-align: center;
+  padding: 10px;
+  background: gainsboro;
+  border-radius: 20px;
+  margin: 10px;
+  cursor: pointer;
+
+}
+
+@keyframes bodyTranslate {
+  25% , 75%{
+    transform: translateX(-15px);
+  }
+  50%{
+      transform: translateX(15px);
+  },
+}
